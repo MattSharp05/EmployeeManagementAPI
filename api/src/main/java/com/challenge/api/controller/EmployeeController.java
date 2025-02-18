@@ -5,16 +5,16 @@ import com.challenge.api.model.EmployeeImpl;
 import com.challenge.api.service.EmployeeService;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * Fill in the missing aspects of this Spring Web REST Controller. Don't forget to add a Service layer.
@@ -26,7 +26,7 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     // Inject EmployeeService employeeService;
-    @Autowired //Spring annotation to inject dependencies
+    @Autowired // Spring annotation to inject dependencies
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
@@ -47,7 +47,8 @@ public class EmployeeController {
      */
     @GetMapping("/{uuid}")
     public Employee getEmployeeByUuid(@PathVariable UUID uuid) {
-        return employeeService.getEmployeeByUuid(uuid)
+        return employeeService
+                .getEmployeeByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found"));
     }
 
@@ -60,5 +61,5 @@ public class EmployeeController {
     public ResponseEntity<EmployeeImpl> createEmployee(@RequestBody EmployeeImpl employee) {
         EmployeeImpl createdEmployee = employeeService.createEmployee(employee);
         return ResponseEntity.ok(createdEmployee);
-        }
+    }
 }

@@ -19,7 +19,15 @@ public class EmployeeImpl implements Employee {
         this.uuid = UUID.randomUUID(); // Ensures UUID is set when an object is created
     }
 
-    public EmployeeImpl(UUID uuid, String firstName, String lastName, Integer salary, Integer age, String jobTitle, String email, Instant contractHireDate) {
+    public EmployeeImpl(
+            UUID uuid,
+            String firstName,
+            String lastName,
+            Integer salary,
+            Integer age,
+            String jobTitle,
+            String email,
+            Instant contractHireDate) {
         this.uuid = uuid;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -64,7 +72,6 @@ public class EmployeeImpl implements Employee {
     public String getFullName() {
         return (firstName != null ? firstName : "") + " " + (lastName != null ? lastName : "");
     }
-
 
     @Override
     public Integer getSalary() {

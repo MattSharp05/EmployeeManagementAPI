@@ -1,13 +1,12 @@
 package com.challenge.api.service;
-import java.util.Optional;
-
 
 import com.challenge.api.model.Employee;
 import com.challenge.api.model.EmployeeImpl;
-import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -20,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Optional <Employee> getEmployeeByUuid(UUID uuid) {
+    public Optional<Employee> getEmployeeByUuid(UUID uuid) {
         return employees.stream()
                 .filter(employee -> employee.getUuid().equals(uuid))
                 .findFirst();
