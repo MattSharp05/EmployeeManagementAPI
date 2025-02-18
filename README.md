@@ -60,15 +60,18 @@ Here is the working example of this solution.
 
 ### Creating an employee
 
+<img width="1035" alt="Screenshot 2025-02-18 at 14 11 26" src="https://github.com/user-attachments/assets/83bfbc76-392d-4543-9a88-62f61e022b62" />
 
 
 ### Fetching all employees
 
+<img width="1032" alt="Screenshot 2025-02-18 at 14 13 10" src="https://github.com/user-attachments/assets/f24bb70c-8c57-41c8-aabc-f6706aae0cb7" />
 
 
 ### Fetching an employee by UUID
 
 
+<img width="1018" alt="Screenshot 2025-02-18 at 14 14 10" src="https://github.com/user-attachments/assets/3db3b82b-e43b-4464-83f4-64b74b744c30" />
 
 
 See Challenge Problem Statement below
