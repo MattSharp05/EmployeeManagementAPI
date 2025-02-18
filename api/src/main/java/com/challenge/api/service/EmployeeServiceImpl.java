@@ -11,13 +11,25 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private final List<Employee> employees = new ArrayList<>(); // Mock in-memory storage
+    // In-memory storage for employees (simulates a database)
+    private final List<Employee> employees = new ArrayList<>();
 
+    /**
+     * Retrieves all employees.
+     *
+     * @return a list of all employees
+     */
     @Override
     public List<Employee> getAllEmployees() {
         return employees;
     }
 
+    /**
+     * Retrieves an employee by their UUID.
+     *
+     * @param uuid the UUID of the employee
+     * @return an Optional containing the employee if found, otherwise empty
+     */
     @Override
     public Optional<Employee> getEmployeeByUuid(UUID uuid) {
         return employees.stream()
@@ -25,6 +37,12 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .findFirst();
     }
 
+    /**
+     * Creates a new employee and assigns a UUID if not provided.
+     *
+     * @param employee the employee to be created
+     * @return the created employee with a UUID
+     */
     @Override
     public EmployeeImpl createEmployee(EmployeeImpl employee) {
         if (employee.getUuid() == null) {

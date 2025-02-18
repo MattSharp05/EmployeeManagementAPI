@@ -18,6 +18,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 /**
  * Fill in the missing aspects of this Spring Web REST Controller. Don't forget to add a Service layer.
+ * REST Controller for managing Employee resources.
+ * Exposes endpoints to retrieve and create employees.
  */
 @RestController
 @RequestMapping("/api/v1/employee")
@@ -25,8 +27,11 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    // Inject EmployeeService employeeService;
-    @Autowired // Spring annotation to inject dependencies
+    /**
+     * Constructor-based dependency injection for EmployeeService.
+     * Ensures the controller follows Spring's best practices.
+     */
+    @Autowired
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
@@ -44,6 +49,7 @@ public class EmployeeController {
      * @implNote Need not be concerned with an actual persistence layer. Generate mock Employee model as necessary.
      * @param uuid Employee UUID
      * @return Requested Employee if exists
+     * @throws ResponseStatusException if the employee does not exist (returns 404 NOT FOUND)
      */
     @GetMapping("/{uuid}")
     public Employee getEmployeeByUuid(@PathVariable UUID uuid) {
