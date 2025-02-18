@@ -7,7 +7,6 @@ This project is a REST API for managing employee records. It provides endpoints 
 
 ### `GET /employees`  
 - **Description:** Returns a list of all employees.  
-- **Response:**  
   ```json
   [
     {
