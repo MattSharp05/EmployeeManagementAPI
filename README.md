@@ -1,3 +1,80 @@
+# Employee Management API  
+
+## Overview  
+This project is a REST API for managing employee records. It provides endpoints to create employees, retrieve employee details, and list all employees.  
+
+## Endpoints  
+
+### `GET /employees`  
+- **Description:** Returns a list of all employees.  
+- **Response:**  
+  ```json
+  [
+    {
+      "uuid": "123e4567-e89b-12d3-a456-426614174000",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "jobTitle": "Software Engineer",
+      "salary": 75000
+    }
+  ]
+
+
+### `POST /employees`  
+- **Description:** Creates a new employee.  
+- **Request Body:**  
+  ```json
+    {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com",
+      "jobTitle": "Hardware Engineer",
+      "salary": 85000
+    }
+
+## Implementation Details
+
+### Architecture and Design
+
+- The project has a layered architecture
+- different parts of the application have distinct responsibilities to ensure the codebase is more modular, maintainable and scalable
+- The project is seperated into the following layers:
+    - Controller Layer (EmployeeController)
+        - Defines API endpoints and handles HTTP requests
+    - Service Layer (EmployeeService)
+        - Contains business logic and acts as an intermediary between the controller and the data layer.
+    - Model Layer (Employee and EmployeeImpl)
+        - Defines data models, ensuring consistency in how employee data is represented
+- Data persistence is simulated using an in-memory store for now
+
+### Why This Approach?
+- Using an interface (Employee) allows flexibility for future enhancements, like supporting different employee types.
+- The service layer ensures that business logic is separate from the API layer, improving maintainability.
+- The UUID identifier provides a unique reference for each employee, making it scalable.
+
+
+## Calling the API
+
+Here is the working example of this solution.
+
+### Creating an employee
+
+
+
+### Fetching all employees
+
+
+
+### Fetching an employee by UUID
+
+
+
+
+See Challenge Problem Statement below
+
+
+
 # ReliaQuest's Entry-Level Java Challenge
 
 Please keep the following in mind while working on this challenge:
